@@ -13,7 +13,8 @@ httpOptions = {
   })
 };
 
-baseUrl:string="http://localhost:62215/api/token/";
+// baseUrl:string="http://api.ourfreeshare.com/api/token/"; //for live
+baseUrl:string="http://localhost:62215/api/token/"; //for local
 
 register(credentials){
     return this.http.post<boolean>(this.baseUrl+"register",JSON.stringify(credentials),this.httpOptions);

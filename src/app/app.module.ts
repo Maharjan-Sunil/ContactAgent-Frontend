@@ -35,7 +35,7 @@ const route: Routes = [
     path: 'admin',
     component: AdminComponent,
     canActivate: [AuthGuardService, AdminAuthGuardService]
-  },//serially goes one after another
+  },
   {
     path: 'login',
     component: LoginComponent
@@ -88,3 +88,5 @@ const route: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
