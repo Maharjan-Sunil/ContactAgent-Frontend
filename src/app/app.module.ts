@@ -7,13 +7,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, BaseRequestOptions, RequestOptions } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NoAccessComponent } from './no-access/no-access.component';
@@ -21,9 +20,12 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AdminAuthGuardService } from './services/admin-auth-guard.service';
 import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './services/register.service';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { Url } from './config/url';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp( new AuthConfig({}), http, options);
+  return new AuthHttp(new AuthConfig({}), http, options);
 }
 
 const route: Routes = [
@@ -58,7 +60,6 @@ const route: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent,
     AdminComponent,
     HomeComponent,
     NotFoundComponent,
@@ -79,6 +80,10 @@ const route: Routes = [
     AdminAuthGuardService,
     // AUTH_PROVIDERS,
     RegisterService,
+    Url,
+
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // For creating a mock back-end. You don't need these in a real app. 
     fakeBackendProvider,
