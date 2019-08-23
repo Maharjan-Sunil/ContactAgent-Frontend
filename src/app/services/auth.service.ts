@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders} from '@angular/common/http';
+import { HttpHeaders, HttpClientModule, HttpClient} from '@angular/common/http';
 import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 import { Router } from '@angular/router';
+import {Url} from '../config/url';
 
 @Injectable()
 export class AuthService {
   constructor(private router:Router,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private baseUrl: Url) {
   } 
 
   httpOptions = {
@@ -15,11 +17,8 @@ export class AuthService {
     })
     };
 
-  // baseUrl:string="http://api.ourfreeshare.com/api/token/"; //for live
-  baseUrl:string="http://localhost:62215/api/token/"; //for local
-
     login(credentials) { 
-      return this.http.post(this.baseUrl+"login",JSON.stringify(credentials),this.httpOptions)
+      return this.http.post(this.baseUrl.rootUrl+"token/login",JSON.stringify(credentials),this.httpOptions)
                       .map(response => {
                                 let result=response;
                                 if(result){

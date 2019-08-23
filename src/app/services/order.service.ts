@@ -1,22 +1,20 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 // import { AuthHttp } from 'angular2-jwt';
-import { Http,RequestOptions,Headers } from '@angular/http';
+import { Product } from 'app/model/Product';
+import { HttpClient } from '@angular/common/http';
+import {Url} from '../config/url';
 
 @Injectable()
 export class OrderService {
 
-  constructor(private http: Http,
-             // private authhttp:AuthHttp //automatically added header request
-              ) {
+  constructor(private http: HttpClient,
+              private baseUrl:Url
+    // private authhttp:AuthHttp //automatically added header request
+  ) {
   }
 
-  getOrders() { 
-    let header=new Headers();
-    let token=localStorage.getItem('token');
-    header.append('Authorization', 'Bearer '+token);
-    let option=new RequestOptions({headers:header});
-    return this.http.get('/api/orders',option)
-      .map(response => response.json());
+  getOrders() {
+    return this.http.get<Product[]>(this.baseUrl.rootUrl + 'Product/GetAllProductDetails');
   }
 }

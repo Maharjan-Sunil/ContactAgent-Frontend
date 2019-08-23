@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Url} from '../config/url';
 
 @Injectable()
 export class RegisterService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private baseUrl:Url) {
 }
 
 httpOptions = {
@@ -13,12 +15,8 @@ httpOptions = {
   })
 };
 
-// baseUrl:string="http://api.ourfreeshare.com/api/token/"; //for live
-baseUrl:string="http://localhost:62215/api/token/"; //for  local
-
 register(credentials){
-    return this.http.post<boolean>(this.baseUrl+"register",JSON.stringify(credentials),this.httpOptions);
-
+    return this.http.post<boolean>(this.baseUrl.rootUrl+"token/register",JSON.stringify(credentials),this.httpOptions);
   }
 
 }
