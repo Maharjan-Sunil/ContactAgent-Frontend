@@ -23,6 +23,8 @@ import { RegisterService } from './services/register.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { Url } from './config/url';
+import { LoaderService } from './services/loader.service';
+import { LoaderComponent } from './loader/loader.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({}), http, options);
@@ -64,7 +66,8 @@ const route: Routes = [
     HomeComponent,
     NotFoundComponent,
     NoAccessComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +84,7 @@ const route: Routes = [
     // AUTH_PROVIDERS,
     RegisterService,
     Url,
+    LoaderService,
 
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
