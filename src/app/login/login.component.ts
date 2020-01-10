@@ -8,12 +8,11 @@ import { Router, ActivatedRoute } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-   
+  invalidLogin: boolean;
   constructor(
     private router: Router, 
     private authService: AuthService,
     private activatedRoute:ActivatedRoute,
-    // public invalidLogin: boolean,
     ) { }
 
   signIn(credentials) {
@@ -23,8 +22,8 @@ export class LoginComponent {
           let returnUrl=this.activatedRoute.snapshot.queryParamMap.get('returnUrl');
           this.router.navigate([returnUrl || '/']);
         }
-        // else  
-        //   this.invalidLogin = true; 
+        else  
+          this.invalidLogin = true; 
       });
   }
 }
