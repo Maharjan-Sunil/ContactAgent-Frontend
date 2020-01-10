@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  public invalidLogin: boolean; 
+   invalidLogin: boolean; 
 
   constructor(
     private router: Router, 
@@ -22,8 +22,8 @@ export class LoginComponent {
           let returnUrl=this.activatedRoute.snapshot.queryParamMap.get('returnUrl');
           this.router.navigate([returnUrl || '/']);
         }
-        else  
-          this.invalidLogin = true; 
+        // else  
+        //   this.invalidLogin = true; 
       });
   }
 }
