@@ -9,7 +9,7 @@ branches:
 before_script:
   - npm install -g @angular/cli
 script:
-- ng build --prod --base-href https://Maharjan-Sunil.github.io/ContactAgent-Frontend
+- ng build --prod --base-href https://Maharjan-Sunil.github.io/ContactAgent-Frontend/
 deploy:
   provider: pages
   skip_cleanup: true
