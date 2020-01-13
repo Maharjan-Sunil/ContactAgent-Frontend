@@ -14,6 +14,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: dist/ContactAgent-Frontend
+  local_dir: dist
   on:
     branch: master
