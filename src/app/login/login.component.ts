@@ -8,12 +8,12 @@ import { Router, ActivatedRoute } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  invalidLogin: boolean; 
-
+  invalidLogin: boolean;
   constructor(
     private router: Router, 
     private authService: AuthService,
-    private activatedRoute:ActivatedRoute) { }
+    private activatedRoute:ActivatedRoute,
+    ) { }
 
   signIn(credentials) {
     this.authService.login(credentials)
