@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClientModule, HttpClient} from '@angular/common/http';
-import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
+// import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 import { Router } from '@angular/router';
 import {Url} from '../config/url';
 
@@ -11,12 +11,18 @@ export class AuthService {
               private baseUrl: Url) {
   } 
 
+  user = {
+    name: 'sunil',
+    admin: true
+  }
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
     })
     };
 
+    
     login(credentials) { 
       return this.http.post(this.baseUrl.rootUrl+"token/login",JSON.stringify(credentials),this.httpOptions)
                       .map(response => {
@@ -36,12 +42,12 @@ export class AuthService {
   }
 
   isLoggedIn() { 
-    return tokenNotExpired();
+    return false //tokenNotExpired();
   }
 
   get currentUser(){
     let details=localStorage.getItem('token');
-    return new JwtHelper().decodeToken(details);
+    return this.user;
   }
 }
 
