@@ -16,6 +16,7 @@ export class LoginComponent {
     private activatedRoute: ActivatedRoute,
   ) { }
 
+
   captchaReponse = "";
   resolved(captchaResponse: string) {
     this.captchaReponse = captchaResponse
