@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 // import { HttpModule, Http, BaseRequestOptions, RequestOptions } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -73,6 +74,8 @@ const route: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
    // HttpModule,
     RouterModule.forRoot(route)
   ],
