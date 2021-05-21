@@ -1,8 +1,8 @@
 
 <h1>Home Page</h1>
-<!--  <p>
-  Welcome {{authService.currentUser.name}}
-</p> -->
+ <p>
+  Welcome 
+</p>
 <ul>
   <li *ngIf="authService.isLoggedIn()"><a routerLink="/admin">Admin</a></li>
   <li *ngIf="!authService.isLoggedIn()"><a routerLink="/login">Login</a></li>
