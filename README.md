@@ -1,28 +1,8 @@
-# AuthDemo
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The project is all about RECAPTCHA and CI-CD with Travis. However, the backend api is up to user choice.
+Scenario, 
+The travis.yml file has setup for CI-CD where we have included github token to access the repo for build and deploy. 
+Currenty, there are two option in 
+![image](https://user-images.githubusercontent.com/34715139/119087579-11335600-ba27-11eb-8ad2-ae974b086378.png)
+the first one is for branch (will trigger whenever we merge to master branch) where the travis build the project and create branch gh-page and deploy the applcation to that branch which is reflected in githup page section for live
+![image](https://user-images.githubusercontent.com/34715139/119087784-68392b00-ba27-11eb-97ea-9da0dd57bc04.png)
+and the section one will trigger every time we create pull request but doen't deploy the applicaition.
