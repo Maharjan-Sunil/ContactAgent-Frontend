@@ -13,4 +13,4 @@ The first one is for branch (will trigger whenever we merge to master branch) wh
 
 ![image](https://user-images.githubusercontent.com/34715139/119087784-68392b00-ba27-11eb-97ea-9da0dd57bc04.png)
 
-and the section one will trigger every time we create pull request but doen't deploy the applicaition.
+and the section one will trigger every time we create pull request but doesn't deploy the application.
